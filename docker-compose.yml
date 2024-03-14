@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: backend/
+      dockerfile: Dockerfile
+    volumes:
+      - backend_db:/app/database
+#    ports:
+#      - "5000:5000"
+    environment:
+      - PORT=5000
+    networks:
+      - app_network
+
+  frontend:
+    build:
+      context: web_app/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      # Assuming the backend service name is used as the hostname for backend URL
+      - BACKEND_URL=http://backend:5000/
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+volumes:
+  backend_db:
+
+networks:
+  app_network:
