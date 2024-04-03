@@ -1,0 +1,7 @@
+kubectl apply -f backend-service.yaml,frontend-service.yaml,backend-db-persistentvolumeclaim.yaml,frontend-deployment.yaml,backend-deployment.yaml,frontend-ingress.yaml
+kubectl apply -f .
+
+kubectl delete -f backend-service.yaml,frontend-service.yaml,backend-db-persistentvolumeclaim.yaml,frontend-deployment.yaml,backend-deployment.yaml,frontend-ingress.yaml
+
+
+minikube dashboard
