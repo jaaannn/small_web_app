@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: frontend
   name: frontend
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       io.kompose.service: frontend
@@ -34,7 +34,7 @@ spec:
           name: frontend
           ports:
             - containerPort: 8080
-              hostPort: 8080
+              #hostPort: 8080
               protocol: TCP
           resources: {}
       restartPolicy: Always
